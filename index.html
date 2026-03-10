@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IELTS Learning App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+      // Chrome Web Speech API bug fix
+      // 定期调用resume来防止speechSynthesis卡住
+      setInterval(() => {
+        if (window.speechSynthesis && window.speechSynthesis.paused) {
+          window.speechSynthesis.resume()
+        }
+      }, 10000)
+    </script>
+  </body>
+</html>
